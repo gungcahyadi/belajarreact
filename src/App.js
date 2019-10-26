@@ -1,24 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+ const [isOn, setIsOn] = useState("on");
+
+  function toogleLight(){
+  if(isOn === "on"){
+  setIsOn("off")
+
+}else{
+  setIsOn("on")
+  
+}
+}
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    <h2>Smart Remote </h2> 
+    <div style={{background: "#f3f3f3", padding: "20px"}}>
+    <button onClick={toogleLight}>Turn {isOn ? "on" : "off"} the light</button>
+    </div>
     </div>
   );
 }
